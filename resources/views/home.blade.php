@@ -19,5 +19,24 @@
             </div>
         </div>
     </div>
+
+                 <div class="row mt-3">
+                    @foreach($allPosts as $post)
+                        <div class="box-post col-4">
+                            <h5> {{$post->title}}</h5>
+                            <img src=" {{$post->cover}}"/>
+                            
+                            <div class="text-post">
+                                <p>{{$post->author}}
+                                <p>{{$post->text}}
+                            </div>
+
+
+                        </div>
+                        
+                    @endforeach
+                </div>
 </div>
+
+   
 @endsection

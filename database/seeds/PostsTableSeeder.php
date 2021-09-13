@@ -16,7 +16,7 @@ class PostsTableSeeder extends Seeder
        for ($i = 0; $i < 50; $i++){
            $postObject = new Post();
            $postObject->title = $faker->sentence(5);
-           $postObject->cover = $faker->imageUrl(640, 480, 'post', true);
+           $postObject->cover = $faker->imageUrl(300, 300, 'post', true);
            $postObject->author = $faker->words(3, true);
            $postObject->text = $faker->text(100);
            $postObject->date = $faker->dateTime();
