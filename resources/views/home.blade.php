@@ -20,7 +20,7 @@
         </div>
     </div>
 
-              <!--   <div class="row mt-3">
+                <div class="row mt-3">
                     @foreach($allPosts as $post)
                         <div class="box-post col-4">
                             <h5> {{$post->title}}</h5>
@@ -28,14 +28,15 @@
                             
                             <div class="text-post">
                                 <p>{{$post->author}}
-                                <p>{{$post->text}}
+                                <p>{{$post->content}}
+                                <h6>{{$post->date}}</h6>
                             </div>
 
 
                         </div>
                         
                     @endforeach
-                </div>-->
+                </div>
 </div>
 
    
