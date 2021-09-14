@@ -20,7 +20,7 @@
         </div>
     </div>
 
-                 <div class="row mt-3">
+              <!--   <div class="row mt-3">
                     @foreach($allPosts as $post)
                         <div class="box-post col-4">
                             <h5> {{$post->title}}</h5>
@@ -35,7 +35,7 @@
                         </div>
                         
                     @endforeach
-                </div>
+                </div>-->
 </div>
 
    
