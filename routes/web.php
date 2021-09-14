@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');  //colleghi HomeController
+
+Route::resource('posts', 'PostController');
+//in questo modo dirai a laravel di creare anche le rotte di resources legate a un controller specifico
