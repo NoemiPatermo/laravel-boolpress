@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Post;// collegati al model
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,7 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all(); //all'interno di index, crei una variabile alla quale passi i dati 
+       // dump($posts);
+       return view('posts.index', compact('posts'));// invii i dati al template della rotta di resources del controller specifico 
     }
 
     /**
