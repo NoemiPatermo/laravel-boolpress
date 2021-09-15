@@ -10,6 +10,7 @@
         <th scope="col">Title</th>
         <th scope="col">Author</th>
         <th scope="col">Date</th>
+        <th scope="col">Actions</th>
         </tr>
     </thead>
 
@@ -20,8 +21,7 @@
             <td>{{$post->title}}</td>
             <td>{{$post->author}}</td>
             <td>{{$post->date}}</td>
-            <td><img src="{{$post->cover}}"/></td>
-            <td>{{$post->content}}</td>
+            <td><a href="{{ route('posts.show', $post)}}"><i class="bi bi-zoom-in"></i></a></td>
         </tr>
     @endforeach
         

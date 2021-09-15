@@ -18,9 +18,26 @@
                             {{ __('You are logged in!') }}
 
                     </div>
+                    
 
                 </div>
             </div>
+
+            <div class="row mt-4" >
+                        
+                        <div class="box-post col-4">
+                            <h1>{{$post->author}}</h1>
+                            <img src="{{$post->cover}}"/>     
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="text-post mb-3">
+                                <h2>{{$post->author}}</h2>
+                                <p>{{$post->content}}</p>
+                                <h6>{{$post->date}}</h6>
+                            </div>
+                        
+                        </div>
     </div>
 
 @endsection
