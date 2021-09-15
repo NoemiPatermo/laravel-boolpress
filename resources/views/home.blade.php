@@ -20,23 +20,25 @@
         </div>
     </div>
 
-                <div class="row mt-3">
+                <div class="row mt-4">
                     @foreach($allPosts as $post)
-                        <div class="box-post col-4">
-                            <h5> {{$post->title}}</h5>
+                    
+                          <div class="box-post col-4">
+                            <h1> {{$post->title}}</h1>
                             <img src=" {{$post->cover}}"/>
-                            
-                            <div class="text-post">
-                                <p>{{$post->author}}
-                                <p>{{$post->content}}
+                         </div> 
+        
+                    <div class="row justify-content-center mt-3">
+                         <div class=" text-post mb-3">
+                                <h2>{{$post->author}}</h2>
+                                <p>{{$post->content}}</p>
                                 <h6>{{$post->date}}</h6>
-                            </div>
-
-
-                        </div>
-                        
+                             </div>
+                             
+                     </div>
+                            
                     @endforeach
-                </div>
+                </div> 
 </div>
 
    
