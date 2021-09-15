@@ -27,6 +27,6 @@ class HomeController extends Controller
     {   
         $allPosts = Post::all(); //metodo col quale prendi ciò che hai nella tua tabella
         
-        return view('/home', compact('allPosts'));
+        return view('home', compact('allPosts'));
     }
 }

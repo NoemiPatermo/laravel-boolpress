@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container">
 <table class="table">
   <thead>
     <tr>
@@ -12,27 +13,22 @@
       <th scope="col">Date</th>
     </tr>
   </thead>
+
   <tbody><!--cicla tabella-->
+   @foreach($posts as $post)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+        <th scope="row">{{$post->id}}</th>
+        <td>{{$post->title}}</td>
+        <td>{{$post->cover}}</td>
+        <td>{{$post->author}}</td>
+        <td>{{$post->date}}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+  @endforeach
+    
   </tbody>
 </table>
 
+
+</div>
 
 @endsection
