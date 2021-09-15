@@ -45,9 +45,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id) //id inviato a questo metodo in automatico, dopo la creazione della resource, che lo riceve
     {
-        //
+        $post = Post::find($id); //trova id specifico con variabile creata appositamente
+        return view('posts.show', compact('post')); // e lo invia alla rotta show [template singolo post di dettaglio]
     }
 
     /**
