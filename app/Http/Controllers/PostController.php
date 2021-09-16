@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Post;// collegati al model
+
+use App\Post;    // collegati al model
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -20,12 +21,13 @@ class PostController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('posts.create');//MOSTRA UN FORM VUOTO PER POPOLARE TUTTI I DATI DEL NOSTRO MODELLO, 
+                                    //AL SALVATAGGIO, STORE->RICEVE I DATI DALLA FORM E SALVA L'OGGETTO
     }
 
     /**
@@ -34,9 +36,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) //qui arrivano le coppie name-value che ti invia il form
+                                            
     {
-        //
+        $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
+
+        $post = new Post();
+        $post->title = $data['title'];
+        $post->cover = $data['cover'];
+        $post->author = $data['author'];
+        $post->content = $data['content'];
+        $post->date = $data['date'];
+        $post->save();
+       
+       return redirect()->route('posts.show', $post->id);//fai la redirect sulla rotta show, passando anche come parametro id che salva
     }
 
     /**
