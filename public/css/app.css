@@ -12332,12 +12332,26 @@ a.text-dark:focus {
   }
 }
 
-.box-post h1 {
-  font-size: 20px;
-  font-weight: bolder;
+.show {
+  background-color: rgba(255, 255, 255, 0.353);
 }
 
-.text-post h2 {
-  text-align: center;
+.show .box-post img {
+  max-width: 100%;
+}
+
+.show .box-text p {
+  word-break: break-all;
+  font-weight: bold;
+}
+
+body {
+  background-image: url("/img/pic-1.png");
+  background-size: cover;
+  background-position-y: center;
+}
+
+body i {
+  color: black;
 }
 

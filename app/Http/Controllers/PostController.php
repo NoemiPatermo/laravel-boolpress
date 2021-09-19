@@ -38,17 +38,19 @@ class PostController extends Controller
      */
     public function store(Request $request) //qui arrivano le coppie name-value che ti invia il form
                                             
-    {
+    {   
+       $request->validate([  //se i dati non sono in linea non vengono validati
+            'cover'=> 'url',
+            'title' => 'required|unique:posts|max:255',
+            'author' => 'required'
+        ]);
+
         $data = $request->all();//ha un metodo interno all(), che ti torna in array associativo i dati inviati
 
-        $post = new Post();
-        $post->title = $data['title'];
-        $post->cover = $data['cover'];
-        $post->author = $data['author'];
-        $post->content = $data['content'];
-        $post->date = $data['date'];
-        $post->save();
-       
+        $post = new Post(); //crei oggetto vuoto
+
+        $this->fillAndSavePost($post, $data);//richiami la funzione che fa il match tra le proprietà del data e le salva 
+
        return redirect()->route('posts.show', $post->id);//fai la redirect sulla rotta show, passando anche come parametro id che salva
     }
 
@@ -70,9 +72,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)//metti l'oggetto di tipo model, così richiama l' id che riceve
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -82,9 +84,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();//dalla request prendi tutti i dati
+
+       // $post->update($data);  //update = fill + save [dopo aver definito le proprietà nel model]
+
+        $this->fillAndSavePost($post, $data);//richiama allo stesso modo la funzione
+
+        return redirect()->route('posts.show', $post);
     }
 
     /**
@@ -93,8 +101,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index');
+    }
+
+    private function fillAndSavePost(Post $post, $data) { //function privata che viene richiamata in store e in update
+        
+        $post->title = $data['title'];
+        $post->cover = $data['cover'];
+        $post->author = $data['author'];
+        $post->content = $data['content'];
+        $post->date = $data['date'];
+        $post->save();
     }
 }
