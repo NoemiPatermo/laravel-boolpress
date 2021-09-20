@@ -7,32 +7,33 @@
      
 
     <table class="table  mt-2" style="background-color: rgba(255, 255, 255, 0.5);">
-    <thead>
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Title</th>
-        <th scope="col">Author</th>
-        <th scope="col">Date</th>
-        <th scope="col">Actions</th>
-        </tr>
-    </thead>
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Date</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
 
-    <tbody>
-    @foreach($posts as $post)
-        <tr>
-            <th scope="row">{{$post->id}}</th>
-            <td>{{$post->title}}</td>
-            <td>{{$post->author}}</td>
-            <td>{{$post->date}}</td>
-            <td>
-                <a href="{{ route('posts.show', $post)}}" class="btn btn-success btn-md" role="button" aria-pressed="true"><i class="bi bi-zoom-in"></a></i>
-             
-            </td>
-            <td>
-                <a href="{{ route('posts.edit', $post)}}" class="btn btn-light btn-md" role="button" aria-pressed="true"><i class="bi bi-pencil-fill"></a></i>
-           
-            </td>
-            <td>
+        <tbody>
+        @foreach($posts as $post)
+            <tr>
+                <th scope="row">{{$post->id}}</th>
+                <td>{{$post->title}}</td>
+                <td>{{$post->author}}</td>
+                <td>{{$post->date}}</td>
+                <td>
+                    <a href="{{ route('posts.show', $post)}}" class="btn btn-success btn-md" role="button" aria-pressed="true"><i class="bi bi-zoom-in"></a></i>
+                
+                </td>
+                <td>
+                    
+                     <a href="{{ route('posts.edit', $post)}}" class="btn btn-light btn-md" role="button" aria-pressed="true"><i class="bi bi-pencil-fill"></a></i>
+                     
+                </td>
+                <td>
                 <!--modal-->
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
                     delete
@@ -57,9 +58,9 @@
             </td>
            
         </tr>
-    @endforeach
-        
-    </tbody>
+        @endforeach
+            
+        </tbody>
     </table>
 
 

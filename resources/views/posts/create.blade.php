@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="container-create">
+        <div class="container-create" style=" background-color: rgba(255, 255, 255, 0.353);">
                         @if ($errors->any())
                           <div class="alert alert-danger">
                             <ul>
@@ -15,7 +15,6 @@
 
             <form action="{{ route ('posts.store') }}" method="POST"> <!--INDICHI LA ROTTA NEL MOMENTO IN CUI AVVIENE IL SUBMIT -->
                 @csrf
-                
                     <div class="row  justify-content-center mt-4">
                         <div class="form-group col-8">
                               <div class="form-group" style="font-weight:bolder; text-align:center; font-size:x-large;" >

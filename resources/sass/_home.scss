@@ -1,0 +1,15 @@
+.home{
+    background-color: aliceblue;
+
+
+    .box-post img{
+        max-width: 100%;
+    }
+    .text-post{
+        padding: 25px;
+        p{
+            word-break: break-all;
+            font-weight: bold;
+        }
+    }
+}

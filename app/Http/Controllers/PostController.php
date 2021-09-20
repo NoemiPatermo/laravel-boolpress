@@ -6,7 +6,12 @@ use App\Post;    // collegati al model
 use Illuminate\Http\Request;
 
 class PostController extends Controller
-{
+{   
+
+    public function __construct()
+    {
+      // $this->middleware('auth');   //blocca l'accesso alla visualizzazione delle rotte 
+    }
     /**
      * Display a listing of the resource.
      *
@@ -73,7 +78,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)//metti l'oggetto di tipo model, così richiama l' id che riceve
-    {
+    {    
         return view('posts.edit', compact('post'));
     }
 
@@ -86,6 +91,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+
+        $request->validate([  //se i dati non sono in linea non vengono validati
+            'cover'=> 'url',
+            'title' => 'required|unique:posts|max:255',
+            'author' => 'required'
+        ]); 
+
         $data = $request->all();//dalla request prendi tutti i dati
 
        // $post->update($data);  //update = fill + save [dopo aver definito le proprietà nel model]

@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');  //colleghi HomeController
+Route::get('/', 'HomeController@index')->name('home');  //colleghi HomeController
 
-Route::resource('posts', 'PostController');
+Route::resource('posts', 'PostController'); //Route::resource('posts', 'PostcontrollerController::class'); altro modo in cui puoi indicarlo
 //in questo modo dirai a laravel di creare anche le rotte di resources legate a un controller specifico

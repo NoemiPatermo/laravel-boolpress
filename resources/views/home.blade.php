@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-        <div class="container-home">
+        <div class="home container">
+        <a href="{{ route('posts.index')}}" class="btn btn-info btn-md" role="button" aria-pressed="true">Move on</a>
                 <div class="row justify-content-center">
                     <div class="col-md-8">
                         <div class="card">
-                            <div class="card-header">{{ __('Dashboard') }}</div>
+                            <div class="card-header">{{ __('Welcome!') }}</div>
 
                             <div class="card-body">
                                 @if (session('status'))
