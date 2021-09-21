@@ -23,3 +23,5 @@ Route::get('/', 'HomeController@index')->name('home');  //colleghi HomeControlle
 
 Route::resource('posts', 'PostController'); //Route::resource('posts', 'PostcontrollerController::class'); altro modo in cui puoi indicarlo
 //in questo modo dirai a laravel di creare anche le rotte di resources legate a un controller specifico
+
+Route::get('/app', 'WebAppController@home');//colleghi il controller

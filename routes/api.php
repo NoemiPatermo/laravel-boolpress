@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+ Route::resource('posts', Api\PostsController::class);//richiami il postcontroller delle api
+ //se hai lo stesso nome per il controller indica prima il path giusto Api\PostsController::class
