@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container">
-        CIAONE
+       
             <div id="app"> <!--in questo modo attivi vue.js-->
 
             <post-list/> <!--dopo averlo registrato in app.js, richiama il componente-->

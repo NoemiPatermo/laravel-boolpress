@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Post;    // collegati al model
 use Illuminate\Http\Request;
 
@@ -30,8 +31,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('posts.create');//MOSTRA UN FORM VUOTO PER POPOLARE TUTTI I DATI DEL NOSTRO MODELLO, 
+    {   
+        $categories = Category::all();//prendi tutte le categorie e inviale al template col compact
+
+        return view('posts.create', compact('categories'));//MOSTRA UN FORM VUOTO PER POPOLARE TUTTI I DATI DEL NOSTRO MODELLO, 
                                     //AL SALVATAGGIO, STORE->RICEVE I DATI DALLA FORM E SALVA L'OGGETTO
     }
 
@@ -126,6 +129,7 @@ class PostController extends Controller
         $post->author = $data['author'];
         $post->content = $data['content'];
         $post->date = $data['date'];
+        $post->category_id = $data['category_id'];
         $post->save();
     }
 }
