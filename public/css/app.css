@@ -12355,6 +12355,7 @@ a.text-dark:focus {
 
 .show .box-post img {
   max-width: 100%;
+  border-radius: 100px;
 }
 
 .show .box-text p {

@@ -27,7 +27,7 @@
                                 <h3>{{$post->author}}</h3>
                                 <p>{{$post->content}}</p>
                                 <h6>{{$post->date}}</h6>
-                                <span>Categoria: {{$post->category->name}}</span> <!--PER MOSTRARE LA CATEGORIA SUL NUOVO POST-->
+                                <span style="font-weight: bolder;">Categoria: {{$post->category->name}}</span> <!--PER MOSTRARE LA CATEGORIA SUL NUOVO POST-->
                         </div>
                     </div>
         </div>
